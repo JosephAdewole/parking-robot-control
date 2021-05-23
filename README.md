@@ -68,10 +68,12 @@ if(right_sensor_state > 500 && left_sensor_state > 500){
     }
 ```
 ### The functions below were called in the commands above. Basically, they all involve Writing a particular Speed(Voltage) to 4 pins which are connected to the L293 Motor Driver-  
-- const int motorA1      = 10;
-- const int motorA2      = 8;
-- const int motorB1      = 12;
-- const int motorB2      = 13;
+```
+const int motorA1      = 10;
+ const int motorA2      = 8;
+ const int motorB1      = 12;
+ const int motorB2      = 13;
+```
 
 Below are the functions in question:
 ```
