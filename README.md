@@ -67,3 +67,33 @@ if(right_sensor_state > 500 && left_sensor_state > 500){
         move_forward();
     }
 ```
+
+## Robot Checks Start, Robot Motion Pause to Take Picture, Robot Motion Continue and Robot Final Stop
+
+Another important function of the robot is to ** Pause ** the motion of the Robot in order to let the Raspberry Pi Camera take a picture of a Licence plate.
+After 3000 milliseconds of the robot motion( Assuming that each Parking Space is 3s apart from the next one), the robot stops to take a picture.
+Now, the Arduino keeps checking the __move_robot_pin__  to know when the Raspberry Pi has sent a signal indicating that a picture has been taken and the robot can now move forward.
+This is shown below:
+```
+while (is_take_picture) {
+      Serial.println("stop motion for picture");
+      stop_motor();      
+      digitalWrite(take_picture_pin, HIGH);
+      delay(1000);
+      
+      bool can_move = check_move_robot();
+      
+      while(can_move == false){
+        can_move = check_move_robot();
+       } //blocks here till pi is done with plate number recognition 
+       
+      Serial.println("picture taken");
+      
+      digitalWrite(take_picture_pin, LOW);
+      is_take_picture = false;
+      delay(500);
+      
+      MsTimer2::start();
+     }
+     
+```
