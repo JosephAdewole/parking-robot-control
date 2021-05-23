@@ -67,7 +67,44 @@ if(right_sensor_state > 500 && left_sensor_state > 500){
         move_forward();
     }
 ```
+### The functions below were called in the commands above. Basically, they all involve Writing a particular Speed(Voltage) to 4 pins which are connected to the L293 Motor Driver-  
+- const int motorA1      = 10;
+- const int motorA2      = 8;
+- const int motorB1      = 12;
+- const int motorB2      = 13;
 
+Below are the functions in question:
+```
+void stop_motor(){
+    digitalWrite(motorA2,LOW);
+    digitalWrite(motorA1,LOW);                       
+    digitalWrite(motorB2,LOW);
+    digitalWrite(motorB1,LOW);
+}
+
+void move_forward(){
+   digitalWrite(motorA2,HIGH);
+        digitalWrite(motorA1,LOW);                       
+        digitalWrite(motorB2,LOW);
+        digitalWrite(motorB1,HIGH);
+}
+
+void turn_left(){
+    digitalWrite (motorA1,HIGH);
+    digitalWrite(motorA2,LOW);                       
+    digitalWrite (motorB1,HIGH);
+    digitalWrite(motorB2,LOW);
+}
+
+void turn_right(){
+    digitalWrite (motorA1,LOW);
+    digitalWrite(motorA2,HIGH);                       
+    digitalWrite (motorB1,LOW);
+    digitalWrite(motorB2,HIGH);
+}
+
+
+```
 ## Robot Checks Start, Robot Motion Pause to Take Picture, Robot Motion Continue and Robot Final Stop
 
 Another important function of the robot is to ** Pause ** the motion of the Robot in order to let the Raspberry Pi Camera take a picture of a Licence plate.
