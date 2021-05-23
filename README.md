@@ -48,5 +48,22 @@ if(right_sensor_state > 500 && left_sensor_state < 500)
       delay(turn_delay);
     }
 ``` 
-### 3.  Move the robot forward 
-If this value is less than 500 as read by the right sensor(right_sensor_state) and also less than 500 as read by the left sensor(left_sensor_state), the robot ** stops **. This is because the robot has sensed that there are refective surfaces on either side of it. In this system, this means that it has reached the very end of its Path.
+### 3.  Stop the robot
+If this value is less than 500 as read by the right sensor(right_sensor_state) and also less than 500 as read by the left sensor(left_sensor_state), the robot **stops**. This is because the robot has sensed that there are refective surfaces on either side of it. In this system, this means that it has reached the very end of its Path.
+```
+if(right_sensor_state < 500 && left_sensor_state < 500)
+    {
+      Serial.println("stop");
+      stop_motor();
+      delay(turn_delay);
+    }
+```
+
+### 4.  Move the robot forward 
+When the white line which determines the path of the robot's motion is straight, however, the IR sensors do not detect an increase in reflection on any side. This means that the line on the floor is in the middle of the robot and the robot can continue to move forward.
+```
+if(right_sensor_state > 500 && left_sensor_state > 500){ 
+        Serial.println("going forward");
+        move_forward();
+    }
+```
