@@ -8,15 +8,15 @@ These functions include:
 These functions are solved in this system by the Arduino code written in the file code.ino .
 
 The Components used in this project include:
-Arduino UNO,
-Rspberry Pi 3b,
-L298 Motor Driver,
-ROBOT 2 WHEELS VEHICLE CHASSIS,
-IR Sensor x 2,
-male to female jumper wires,
-female to female jumper wires,
-1k resistor ,
-Power Bank
+-Arduino UNO,
+-Raspberry Pi 3b,
+-L298 Motor Driver,
+-ROBOT 2 WHEELS VEHICLE CHASSIS,
+-IR Sensor x 2,
+-male to female jumper wires,
+-female to female jumper wires,
+-1k resistor ,
+-Power Bank
 
 # Robot Line Following
 
