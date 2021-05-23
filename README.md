@@ -30,11 +30,13 @@ This function is based on the robot following a WHITE LINE on a BLACK parking lo
 
 ### 1.  Turn the robot right
   If this value is less than 500 as read by the right sensor(right_sensor_state) and greater than 500 as read by the left sensor(left_sensor_state), the robot moves to the right, sinceit has detected the brighter surface(White Line) on the right side.
+```
 if(right_sensor_state < 500 && left_sensor_state > 500)
     {
       Serial.println("turning right");
       turn_right();
-    }
+    } 
+    ```
     
 ### 2.  Turn the robot left:
  If this value is greater than 500 as read by the right sensor(right_sensor_state) and less than 500 as read by the left sensor(left_sensor_state), the robot moves to the right, sinceit has detected the brighter surface(White Line) on the left side.
