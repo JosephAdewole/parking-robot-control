@@ -49,4 +49,4 @@ if(right_sensor_state > 500 && left_sensor_state < 500)
     }
 ``` 
 ### 3.  Move the robot forward 
-
+If this value is less than 500 as read by the right sensor(right_sensor_state) and also less than 500 as read by the left sensor(left_sensor_state), the robot ** stops **. This is because the robot has sensed that there are refective surfaces on either side of it. In this system, this means that it has reached the very end of its Path.
