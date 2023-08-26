@@ -1,4 +1,4 @@
-# Mawaqif Robot Control
+# Robot Control
 
 The Robot has 2 of it's major functions handled here in the code.ino file.
 These functions include:
